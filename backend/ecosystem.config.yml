@@ -1,0 +1,13 @@
+apps:
+  - script: ./dist/server.js
+    name: 'Chalenge API'
+    watch: true
+    instances: 0
+    exec_mode: cluster
+    env:
+      NODE_ENV: 'production'
+      PORT: '8080'
+      HOST: 'localhost'
+      ENABLE_HTTPS: 'true'
+      CERT_FILE: './cert/cert.pem'
+      KEY_FILE: './cert/key.pem'
