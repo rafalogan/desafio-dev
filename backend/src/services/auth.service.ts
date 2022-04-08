@@ -4,11 +4,11 @@ import httpStatus from 'http-status';
 import jwt from 'jwt-simple'
 import { Request } from 'express';
 
-import { User } from 'src/core/repositories/user.entity';
+import { User } from 'src/repositories/entities/user.entity';
 import { UserService } from 'src/services/user.service';
 import { existsOrError, isMatch, onError } from 'src/utils';
-import { ICredentials, IUser } from 'src/core/types';
-import { Payload } from 'src/core/repositories/payload.model';
+import { ICredentials, IUser } from 'src/repositories/types';
+import { Payload } from 'src/repositories/models/payload.model';
 
 
 export class AuthService {

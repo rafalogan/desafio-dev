@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import httpStatus from 'http-status';
 import { Response } from 'express';
-import { ErroRsponseOpitons } from 'src/core/types/response';
+import { ErroRsponseOpitons } from 'src/repositories/types/response';
 import { onError } from 'src/utils/log-handler';
 
 const isValid = !process.env.NODE_ENV || process.env.NODE_ENV !== 'production';
@@ -20,3 +20,8 @@ export const onResponseError = (options: ErroRsponseOpitons) => {
 		error: options.message,
 	});
 };
+
+
+export function * run () {
+	for (let data of arguments) yield data;
+}

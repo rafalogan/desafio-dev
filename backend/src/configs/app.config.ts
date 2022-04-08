@@ -5,7 +5,7 @@ import cors from 'cors';
 
 import ServicesModule from 'src/services/services.module';
 import CalcModule from 'src/modules/calc/calc.module';
-import { AppConfigOptions } from 'src/core/types';
+import { AppConfigOptions } from 'src/repositories/types';
 
 
 export class AppConfig {

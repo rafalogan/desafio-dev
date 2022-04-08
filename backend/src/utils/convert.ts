@@ -37,3 +37,21 @@ export const clearTimestamp = (data: any) => {
 
 	return data;
 };
+
+export const convertStringToDateString = (date: string) => {
+	const year = date.slice(0, 4);
+	const month = date.slice(4, 6);
+	const day = date.slice(6, 8);
+
+	return `${year}-${month}-${day}`;
+};
+
+
+export const convertSrtringToTimeString = (date: string) => {
+	const hour = date.slice(0, 2);
+	const minute = date.slice(2, 4) || '00';
+	const second = date.slice(4, 6) || '00';
+
+	return `${hour}:${minute}:${second}`;
+};
+

@@ -2,9 +2,9 @@ import { Knex } from 'knex';
 import httpStatus from 'http-status';
 
 import { AbstractDbService } from 'src/core';
-import { User } from 'src/core/repositories/user.entity';
+import { User } from 'src/repositories/entities/user.entity';
 import { equalsOrError, existsOrError, hashString, notExistisOrError, onError } from 'src/utils';
-import { IReadOperation, IUser } from 'src/core/types';
+import { IReadOperation, IUser } from 'src/repositories/types';
 
 export class UserService extends AbstractDbService {
 	constructor(private salt: number, conn: Knex) {

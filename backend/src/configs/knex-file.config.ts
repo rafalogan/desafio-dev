@@ -4,7 +4,7 @@ import {
 	IKnexFile,
 	IKnexMigrationConfig,
 	IKnexPoolConfig
-} from 'src/core/types';
+} from 'src/repositories/types';
 
 
 export class KnexFileConfig  implements  IKnexFile {

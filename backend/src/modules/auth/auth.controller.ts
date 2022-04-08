@@ -2,10 +2,10 @@ import httpStatus, { HttpStatus } from 'http-status';
 import { Request, Response } from 'express';
 
 import { AuthService } from 'src/services/auth.service';
-import { ICredentials, IErroValidationUser } from 'src/core/types';
+import { ICredentials, IErroValidationUser } from 'src/repositories/types';
 import { onInfo, onResponseError, onResponseSuccess } from 'src/utils';
 import { UserService } from 'src/services/user.service';
-import { User } from 'src/core/repositories/user.entity';
+import { User } from 'src/repositories/entities/user.entity';
 
 
 

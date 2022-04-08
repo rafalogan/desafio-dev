@@ -1,4 +1,4 @@
-import { IUser } from 'src/core/types/user';
+import { IUser } from 'src/repositories/types/user';
 
 export interface ICredentials {
 	email: string;

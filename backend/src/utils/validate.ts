@@ -1,8 +1,8 @@
 import isEmpty from 'is-empty';
 import bcrypt from 'bcrypt';
 
-import { ICredentials } from 'src/core/types';
-import { User } from 'src/core/repositories/user.entity';
+import { ICredentials } from 'src/repositories/types';
+import { User } from 'src/repositories/entities/user.entity';
 
 export const existsOrError = (value: any, message: string) => {
 	if (isEmpty(value)) throw message;

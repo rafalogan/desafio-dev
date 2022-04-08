@@ -9,7 +9,7 @@ export async function up(knex: Knex): Promise<void> {
 		table.string('email').notNullable().unique();
 		table.string('password').notNullable();
 		table.boolean('admin').notNullable().defaultTo(false);
-		table.timestamp('deletedAat');
+		table.timestamp('deletedAat').nullable();
 	});
 }
 

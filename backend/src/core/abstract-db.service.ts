@@ -1,5 +1,5 @@
 import {  Knex } from 'knex';
-import { IReadOperation } from 'src/core/types';
+import { IReadOperation } from 'src/repositories/types';
 import { existsOrError, ResponseException } from 'src/utils';
 import httpStatus from 'http-status';
 

@@ -1,5 +1,5 @@
-import { IPayload } from 'src/core/types';
-import { User } from 'src/core/repositories/user.entity';
+import { IPayload } from 'src/repositories/types';
+import { User } from 'src/repositories/entities/user.entity';
 
 export class Payload implements IPayload {
 	id: number;

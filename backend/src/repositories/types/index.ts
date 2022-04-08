@@ -5,3 +5,4 @@ export * from './database';
 export * from './knex-file';
 export * from './iapp';
 export * from './payload';
+export * from './cnabfile';

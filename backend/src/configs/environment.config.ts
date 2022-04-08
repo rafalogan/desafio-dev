@@ -1,4 +1,4 @@
-import { IDatabaseEnvironment, IEnvironment, ISecurityEnvironment } from 'src/core/types';
+import { IDatabaseEnvironment, IEnvironment, ISecurityEnvironment } from 'src/repositories/types';
 
 export class Environment implements IEnvironment {
 	nodeEnv: string;

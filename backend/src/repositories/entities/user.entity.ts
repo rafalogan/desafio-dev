@@ -1,4 +1,4 @@
-import { IUser } from 'src/core/types';
+import { IUser } from 'src/repositories/types';
 
 export class User implements IUser {
 	id: number;
