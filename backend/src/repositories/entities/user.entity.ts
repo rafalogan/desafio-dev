@@ -1,7 +1,7 @@
 import { IUser } from 'src/repositories/types';
 
 export class User implements IUser {
-	id: number;
+	id?: number;
 	admin: boolean;
 	name: string;
 	email: string;
@@ -9,8 +9,8 @@ export class User implements IUser {
 	confirmPassword?: string;
 	deletedAt?: Date;
 
-	constructor(props: IUser) {
-		this.id = props.id;
+	constructor(props: IUser, id?: number) {
+		this.id = ('id' in props) ? props.id : id;
 		this.name = props.name;
 		this.admin = props.admin || false;
 		this.email = props.email;

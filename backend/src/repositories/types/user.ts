@@ -1,7 +1,7 @@
 import { HttpStatus } from 'http-status';
 
 export interface IUser {
-	id: number;
+	id?: number;
 	name: string;
 	email: string;
 	password: string;

@@ -10,10 +10,10 @@ export class Cnab implements ICnab {
 	owner: string;
 	store: string;
 
-	constructor(data: ICnabData, id?: number) {
-		this.id = id;
+	constructor(data: ICnabData | ICnab, id?: number) {
+		this.id = ('id' in data) ? data.id : id;
 		this.type = data.type;
-		this.date = new Date(`${data.date}T${data.time}`);
+		this.date =  ('time' in data) ? new Date(`${data.date}T${data.time}`) : new Date(data.date);
 		this.value = data.value;
 		this.cpf = data.cpf;
 		this.card = data.card;
