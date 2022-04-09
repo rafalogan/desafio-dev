@@ -54,4 +54,3 @@ export const convertSrtringToTimeString = (date: string) => {
 
 	return `${hour}:${minute}:${second}`;
 };
-

@@ -9,6 +9,7 @@ export class Cnab implements ICnab {
 	card: string;
 	owner: string;
 	store: string;
+	userId?: number;
 
 	constructor(data: ICnabData | ICnab, id?: number) {
 		this.id = ('id' in data) ? data.id : id;

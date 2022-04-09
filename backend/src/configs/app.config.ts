@@ -3,15 +3,16 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 
-import ServicesModule from 'src/services/services.module';
-import CalcModule from 'src/modules/calc/calc.module';
 import { AppConfigOptions } from 'src/repositories/types';
+import { ControllersModule } from 'src/api/controllers/controllers.module';
+import { RoutesModule } from 'src/api/routes/routes.module';
+import { ServicesModule } from 'src/services/services.module';
 
 
 export class AppConfig {
-	private _express: Application;
-	private servicesModule: ServicesModule;
-	private environment: string;
+	private readonly _express: Application;
+	private readonly servicesModule: ServicesModule;
+	private readonly environment: string;
 
 	constructor(options: AppConfigOptions) {
 		this._express = express();
@@ -38,7 +39,9 @@ export class AppConfig {
 	}
 
 	private initModules() {
-		const { calcService } = this.servicesModule;
-		new CalcModule(this.express, calcService).exec();
+		const controllers = new ControllersModule(this.servicesModule);
+		const routes = new RoutesModule(this.express, controllers, this.servicesModule.authService);
+
+		return routes.exec();
 	}
 }

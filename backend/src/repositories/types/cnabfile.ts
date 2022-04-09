@@ -18,4 +18,5 @@ export interface ICnab {
 	card: string;
 	owner: string;
 	store: string;
+	userId?: number;
 }
