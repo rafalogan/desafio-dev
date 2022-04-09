@@ -16,9 +16,7 @@ import { ServerModule } from 'src/server.module';
 execDotEnv();
 
 export const environment = new Environment();
-onLog('environment', environment);
 const { security, databaseConfig } = environment;
-
 
 const cert = security.certFile ? fs.readFileSync(security.certFile) : '';
 const key = security.keyFile ? fs.readFileSync(security.keyFile) : '';
