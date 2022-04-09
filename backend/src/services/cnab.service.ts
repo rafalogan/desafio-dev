@@ -1,7 +1,7 @@
 import { AbstractDbService } from 'src/core';
 import { Knex } from 'knex';
 
-import { ENTRY_TYPES, existsOrError, onLog, OUT_TYPES } from 'src/utils';
+import { ENTRY_TYPES, existsOrError, OUT_TYPES } from 'src/utils';
 import { Cnab } from 'src/repositories/entities/cnab.entity';
 import { ICnab, IReadOperation } from 'src/repositories/types';
 
