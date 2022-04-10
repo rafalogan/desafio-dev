@@ -10,7 +10,7 @@ export class Payload implements IPayload {
 	exp: number;
 
 	constructor(data: User | IPayload ) {
-		this.id = data.id;
+		this.id = (data.id) ?? Number(data.id);
 		this.name = data.name;
 		this.email = data.email;
 		this.admin = data.admin;
