@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "pm2-runtime start ecosystem.config.yml",
+    "start": "npm run build && pm2-runtime start ecosystem.config.yml",
     "lint": "npx eslint . --ext .ts",
     "lint:fix": "npx eslint . --ext .ts --fix",
     "style": "prettier --check 'src/**/*.ts' 'test/**/*ts'",

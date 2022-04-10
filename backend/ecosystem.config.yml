@@ -2,7 +2,7 @@ apps:
   - script: ./dist/server.js
     name: 'Chalenge API'
     watch: true
-    instances: 0
+    instances: 2
     exec_mode: cluster
     env:
       NODE_ENV: 'production'
