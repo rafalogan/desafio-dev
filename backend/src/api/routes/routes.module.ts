@@ -1,11 +1,12 @@
 import { Application } from 'express';
-import { ControllersModule } from 'src/api/controllers/controllers.module';
+import fileUpload from 'express-fileupload';
 
+import { ControllersModule } from 'src/api/controllers/controllers.module';
 import { AuthService } from 'src/services/auth.service';
-import { notFound } from 'src/core/middlewares';
 import { AuthRoutes } from 'src/api/routes/auth.routes';
 import { UserRoutes } from 'src/api/routes/user.routes';
 import { CnabRoutes } from 'src/api/routes/cnab.routes';
+import { notFound } from 'src/core/middlewares';
 
 export class RoutesModule {
 	authRoutes: AuthRoutes;
@@ -22,6 +23,9 @@ export class RoutesModule {
 		this.authRoutes.initRoutes();
 		this.userRoutes.initRoutes();
 		this.cnabRoutes.initRoutes();
+		this.app.use(fileUpload({
+			limits: { fileSize: 50 * 1024 * 1024 },
+		}));
 		this.app.use(notFound);
 	}
 }

@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+@import "src/assets/themes/variables.scss";
+// Color
+@import "src/assets/themes/components/color-variables";
+@import "src/assets/themes/components/color-classes";
+
+// Variables;
+@import "src/assets/themes/components/variables";
+
+// Reset
+@import "src/assets/themes/components/normalize";
+
+// components
+@import "src/assets/themes/components/global";
+@import "src/assets/themes/components/badges";
+@import "src/assets/themes/components/icons-material-design";
+@import "src/assets/themes/components/grid";
+@import "src/assets/themes/components/navbar";
+@import "src/assets/themes/components/typography";
+@import "src/assets/themes/components/transitions";
+@import "src/assets/themes/components/cards";
+@import "src/assets/themes/components/toast";
+@import "src/assets/themes/components/tabs";
+@import "src/assets/themes/components/tooltip";
+@import "src/assets/themes/components/buttons";
+@import "src/assets/themes/components/dropdown";
+@import "src/assets/themes/components/waves";
+@import "src/assets/themes/components/modal";
+@import "src/assets/themes/components/collapsible";
+@import "src/assets/themes/components/chips";
+@import "src/assets/themes/components/materialbox";
+@import "src/assets/themes/components/forms/forms";
+@import "src/assets/themes/components/table_of_contents";
+@import "src/assets/themes/components/sidenav";
+@import "src/assets/themes/components/preloader";
+@import "src/assets/themes/components/slider";
+@import "src/assets/themes/components/carousel";
+@import "src/assets/themes/components/tapTarget";
+@import "src/assets/themes/components/pulse";
+@import "src/assets/themes/components/datepicker";
+@import "src/assets/themes/components/timepicker";
+
+
+
+
+.default-hover-effect {
+  opacity: 0.8;
+}
+
+header {
+  @extend nav;
+}
+
+.toolbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: $primary-color;
+  color: $light-color;
+  font-weight: 600;
+
+  img {
+    max-height: 36px;
+    margin: 0 16px;
+  }
+
+  #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+    &:hover {
+      @extend .default-hover-effect;
+    }
+  }
+
+  #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+
+    &:hover {
+      @extend .default-hover-effect;
+    }
+  }
+
+}
+
+
+html, body {
+  width: 100%;
+  height: 100vh;
+}
+
+
+footer {
+  @extend .page-footer;
+  padding: 0;
+
+  background-color: $primary-color;
+  color: $light-color;
+}
+
+.fixer-footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}

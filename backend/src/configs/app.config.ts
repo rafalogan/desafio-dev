@@ -32,7 +32,14 @@ export class AppConfig {
 	}
 
 	private configExpress() {
-		this.express.use(cors());
+		this.express.use(cors({
+			origin: '*',
+			methods: ['GET', 'POST', 'PUT', 'DELETE'],
+			allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+			exposedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+			credentials: true,
+			optionsSuccessStatus: 200
+		}));
 		this.express.use(morgan(this.environment !== 'production' ? 'dev' : 'combined'));
 		this.express.use(bodyParser.urlencoded({ extended: false }));
 		this.express.use(bodyParser.json());

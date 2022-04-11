@@ -1,0 +1,21 @@
+@import "src/assets/themes/variables.scss";
+
+.highlight-card {
+  width: auto;
+  background-color: $primary-color;
+  color: $light-color;
+
+  .img-icon {
+    width: auto;
+    max-height: 30px;
+
+    vertical-align: middle;
+  }
+
+
+  input {
+    color: $light-color;
+  }
+
+}
+

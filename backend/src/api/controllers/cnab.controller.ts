@@ -4,16 +4,21 @@ import { FileService } from 'src/services/file.service';
 import { CnabService } from 'src/services/cnab.service';
 import { ICnabData } from 'src/repositories/types';
 import { Cnab } from 'src/repositories/entities/cnab.entity';
-import { onInfo, onResponseError, onResponseSuccess } from 'src/utils';
+import { existsOrError, onInfo, onLog, onResponseError, onResponseSuccess } from 'src/utils';
+
 
 export class CnabController {
 	constructor(private fileService: FileService, private cnabService: CnabService) {}
 
 	async processFile(req: Request, res: Response) {
-		const path = req.params.file;
-		const file = `./src/files/${path}`;
+		const file: any = req.file;
+		try {
+			existsOrError(file, 'Arquivo não encontrado');
+		} catch (error) {
+			return onResponseError({res, error, message: 'Erro ao enviar arquivo'});
+		}
 
-		const process: ICnabData[] = await this.fileService.readFile(file);
+		const process: ICnabData[] = await this.fileService.readFile(file.path);
 		const data: Cnab[] = process.map(item => new Cnab(item));
 
 		try {
@@ -21,7 +26,6 @@ export class CnabController {
 				.then( result => result)
 				.catch(err => err));
 
-			onInfo('Todos os CNAB salvos com sucesso!', porcesedData);
 			onResponseSuccess(res, data);
 		} catch (error) {
 			onResponseError({res, error, message: 'Erro ao processar arquivo'});

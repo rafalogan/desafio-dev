@@ -1,5 +1,5 @@
 apps:
-  - script: ./dist/server.js
+  - script: ./dist/index.js
     name: 'Chalenge API'
     watch: true
     instances: 2
@@ -11,3 +11,11 @@ apps:
       ENABLE_HTTPS: 'true'
       CERT_FILE: './cert/cert.pem'
       KEY_FILE: './cert/key.pem'
+      DB_CLIENT: 'postgresql'
+      DB_HOST: '127.0.0.1'
+      DB_NAME: 'cnab_db'
+      DB_USER: 'root'
+      DB_PASSWORD: 'root@100'
+      DB_PORT: '5432'
+      AUTHSECRET: 'ProdD3$4fi0D3V$$'
+      TIMEZONE: 'America/Sao_Paulo'
