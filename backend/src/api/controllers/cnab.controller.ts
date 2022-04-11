@@ -4,11 +4,17 @@ import { FileService } from 'src/services/file.service';
 import { CnabService } from 'src/services/cnab.service';
 import { ICnabData } from 'src/repositories/types';
 import { Cnab } from 'src/repositories/entities/cnab.entity';
-import { existsOrError, onInfo, onLog, onResponseError, onResponseSuccess } from 'src/utils';
+import { clearRepeatItens, existsOrError, onInfo, onLog, onResponseError, onResponseSuccess } from 'src/utils';
 
 
 export class CnabController {
 	constructor(private fileService: FileService, private cnabService: CnabService) {}
+
+	async getStories(req: Request, res: Response) {
+		this.cnabService.readStoriesNames()
+			.then(data => onResponseSuccess(res, clearRepeatItens(data)))
+			.catch(error => onResponseError({res, message: 'Erro ao buscar nomes', error}));
+	}
 
 	async processFile(req: Request, res: Response) {
 		const file: any = req.file;

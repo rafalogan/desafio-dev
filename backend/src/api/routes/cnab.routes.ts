@@ -14,5 +14,6 @@ export class CnabRoutes extends AbstractRoutes {
 
 		this.app.route('/transactions').get(this.cnabContorller.readAll.bind(this.cnabContorller));
 		this.app.route('/transactions/:store').get(this.cnabContorller.readByStore.bind(this.cnabContorller));
+		this.app.route('/stories').get(this.cnabContorller.getStories.bind(this.cnabContorller));
 	}
 }

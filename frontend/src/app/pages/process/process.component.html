@@ -6,26 +6,97 @@
         <img src="assets/send_file.png" alt="" class="responsive-img img-icon">
       </div>
       <div class="col">
-        <span class="card-title">Enviar arquivo CNAB:</span>
+        <span class="card-title">Enviar arquivo CNAB</span>
       </div>
     </div>
     <div class="card-content">
       <div class="row">
-        <div class="col s12">
+        <div class="col">
           <input type="file" (change)="onchange($event)">
+        </div>
+        <div class="col">
+          <button class="waves-effect waves-light btn {{ isdisabled }}" (click)="onUpload()">enviar</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-  <!-- Resources -->
-  <h2>Transações</h2>
-  <p>Here are some links to help you get started:</p>
+<!-- Resources -->
+<div class="row">
+  <div class="col s12">
+    <h2>Transações</h2>
+    <p>Here are some links to help you get started:</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col s8 filter">
+    <h6>Filtrar por loja</h6>
+  </div>
+  <div class="col s4">
+    <select class="browser-default" [value]="selectedStore" (change)="onChangeStore($event)">
+      <option value="todas" selected>Toda Lojas</option>
+      <option *ngFor="let store of stories" [value]="store">{{store}}</option>
 
-  <div class="card">
-    <div class="card-content">
-
+    </select>
+  </div>
+</div>
+<div class="row" *ngIf="transactions">
+  <div class="col s12">
+    <table class="striped highlight">
+      <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Data</th>
+        <th>Valor</th>
+        <th>CPF</th>
+        <th>Catão</th>
+        <th>Proprietário</th>
+        <th>Loja</th>
+        <th *ngIf="balance">Saldo Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.typeName }}</td>
+        <td>{{ transaction.date | date: "dd/MM/YYYY HH:MM:ss" }}</td>
+        <td>{{ transaction.value | currency:'BRL' }}</td>
+        <td>{{ transaction.cpf }}</td>
+        <td>{{ transaction.card }}</td>
+        <td>{{ transaction.owner }}</td>
+        <td>{{ transaction.store }}</td>
+        <td *ngIf="balance">-------//-------</td>
+      </tr>
+      <tr *ngIf="balance">
+        <td>-------//-------</td>
+        <td>-------//-------</td>
+        <td>-------//-------</td>
+        <td>-------//-------</td>
+        <td>-------//-------</td>
+        <td>-------//-------</td>
+        <td>-------//-------</td>
+        <td [class]="(balance >=0) ? 'positve': 'negative'">{{balance | currency: 'BRL'}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row pagination-row" *ngIf="!balance">
+  <div class="row">
+    <div class="col s12">
+      <h6> Mais paginas</h6>
     </div>
   </div>
+  <div class="row">
+    <div class="col s4">
+      <button class="waves-effect waves-light btn" (click)="onPrevious()">Anterior</button>
+    </div>
+    <div class="col s4">
+      <p> <a href="" *ngFor="let page of pagination?.pages" > {{page}}, </a> </p>
+    </div>
+    <div class="col s4">
+      <button class="waves-effect waves-light btn" (click)="onNext()">Próximo</button>
+    </div>
+  </div>
+</div>
 

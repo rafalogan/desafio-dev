@@ -19,3 +19,22 @@
 
 }
 
+table {
+  width: 100%;
+  margin: 3% auto;
+}
+
+.pagination-row {
+  text-align: center;
+}
+.filter {
+  text-align: right;
+}
+
+.negative {
+  color: $danger-color;
+}
+
+.positve {
+  color: $primary-color;
+}

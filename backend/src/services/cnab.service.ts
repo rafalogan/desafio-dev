@@ -46,4 +46,11 @@ export class CnabService extends AbstractDbService {
 		return entry - out;
 	}
 
+
+	readStoriesNames() {
+		return this.connection(this.table)
+			.select('store')
+			.then(result => result.map(item => item.store))
+			.catch(error => error);
+	}
 }

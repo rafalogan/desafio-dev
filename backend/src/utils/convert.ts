@@ -54,3 +54,6 @@ export const convertSrtringToTimeString = (date: string) => {
 
 	return `${hour}:${minute}:${second}`;
 };
+
+
+export const clearRepeatItens = (data: string[]) => data.filter((item, index) => data.indexOf(item) === index);
